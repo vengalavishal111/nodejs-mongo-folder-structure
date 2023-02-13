@@ -24,5 +24,17 @@ function SampleController(objectCollection) {
     })
 
 
+      //@Post sample/get/all/list
+      app.post('/' + 'api/' + 'sample/get/all/list', async function (req, res) {
+        const [err, resData] = await sampleService.sampleGetAll(req.body);
+        if (!err) {
+            console.log("sample/get/all/list| Error: ", err);
+            res.json(responseWrapper.getResponse({}, resData, 200, req.body));
+        } else {
+            console.log("sample/get/all/list | Error: ", err);
+            res.json(responseWrapper.getResponse(err, resData, -9999, req.body));
+        }
+    })
+
 }
 module.exports = SampleController;

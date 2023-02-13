@@ -15,10 +15,27 @@ function SampleService(objectCollection) {
             sample_2: request.sample_2
         })
         await sample.save().then((data) => {
+            responseData.push(data)
+            error = false
+        })
+            .catch((err) => {
+                console.log("err-------" + err);
+                error = err
+            });
+        return [error, responseData]
+
+    };
+
+
+    this.sampleGetAll = async function (request) {
+        let responseData = []
+        error = true
+
+        await Sample.find().then((data) => {
             responseData = data
             error = false
         })
-        .catch((err) => {
+            .catch((err) => {
                 console.log("err-------" + err);
                 error = err
             });

@@ -36,8 +36,6 @@ switch (i) {
 }
 
 try {
-
-
     // MongoClient.connect(mongoConn, function (err, db) {
     //     if (err) {
     //         console.log("error------" + err)

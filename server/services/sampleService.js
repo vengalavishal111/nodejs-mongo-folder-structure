@@ -15,6 +15,7 @@ function SampleService(objectCollection) {
             sample_2: request.sample_2
         })
         await sample.save().then((data) => {
+            responseData = data
             error = false
         })
         .catch((err) => {

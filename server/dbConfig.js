@@ -1,6 +1,6 @@
 
-MongoClient = require('mongodb').MongoClient
-// const mongoose = require('mongoose')
+// MongoClient = require('mongodb').MongoClient
+const mongoose = require('mongoose')
 
 
 if (mode === 'local') {
@@ -36,15 +36,24 @@ switch (i) {
 }
 
 try {
-    MongoClient.connect(mongoConn, function (err, db) {
-        if (err) {
-            console.log("error------" + err)
 
-        } else {
-            console.log(`Successfully connected to mongodb`)
 
-        }
-    })
+    // MongoClient.connect(mongoConn, function (err, db) {
+    //     if (err) {
+    //         console.log("error------" + err)
+
+    //     } else {
+    //         console.log(`Successfully connected to mongodb`)
+    //     }
+    // })
+
+    mongoose
+        .connect(mongoConn, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+
+        }).then(() => console.log("Database connected!"))
+        .catch(err => console.log(err));
 } catch (exception) {
     console.log("error", exception);
 }

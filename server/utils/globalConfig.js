@@ -16,8 +16,8 @@ if (mode === "staging") {
 
 }
 else if (mode === "local") {
-        config.mongoURILocal = "mongodb://localhost:27017/nodejsmongo",
-        config.port = 8000
+        config.mongoURILocal = "mongodb://localhost:27017/sampletest",
+                config.port = 8000
 }
 
 
